@@ -3,469 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicias Rebe | Pastelería Gourmet al por Mayor y Menor</title>
+    <title>Delicias Rebe - Pastelería Artesanal</title>
     <style>
-        /* VARIABLES DE DISEÑO (Paleta Crema y Chocolate) */
-        :root {
-            --chocolate-oscuro: #2B1810;
-            --chocolate-suave: #4A3125;
-            --crema-principal: #FDF8F4;
-            --crema-oscuro: #F3E9DC;
-            --dorado-acento: #D4A373;
-            --texto-oscuro: #333333;
-            --blanco: #FFFFFF;
-        }
-
-        /* ESTILOS GENERALES */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--crema-principal);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
+            background-color: #fcf8f2;
+            color: #4a3b32;
+        }
+
+        header {
+            background-color: #ffb7b2;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 2.6rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            color: #6d594f;
+            font-style: italic;
+            margin-top: 8px;
+            font-size: 1.1rem;
+        }
+
+        .aviso-b2b {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #c8e6c9;
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: block;
         }
 
-        /* BARRA DE NAVEGACIÓN */
-        header {
-            background-color: var(--chocolate-oscuro);
-            color: var(--blanco);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .main-layout {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .col-productos {
+            display: table-cell;
+            width: 65%;
+            vertical-align: top;
+            padding-right: 20px;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            color: var(--crema-oscuro);
-            font-weight: 700;
+        .col-carrito {
+            display: table-cell;
+            width: 35%;
+            vertical-align: top;
         }
 
-        .logo span {
-            color: var(--dorado-acento);
+        @media (max-width: 768px) {
+            .col-productos, .col-carrito {
+                display: block;
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--crema-oscuro);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--dorado-acento);
-        }
-
-        .cart-icon {
-            cursor: pointer;
-            position: relative;
-            background: var(--chocolate-suave);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-        }
-
-        /* HERO SECTION (BIENVENIDA) */
-        .hero {
-            background: linear-gradient(rgba(43, 24, 16, 0.7), rgba(43, 24, 16, 0.7)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: var(--blanco);
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-content h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--crema-oscuro);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--dorado-acento);
-            color: var(--chocolate-oscuro);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--crema-oscuro);
-            transform: translateY(-2px);
-        }
-
-        /* SECCIÓN DE MODALIDADES DE VENTA */
-        .modalidades {
-            padding: 4rem 0;
-            background-color: var(--crema-oscuro);
-            text-align: center;
-        }
-
-        .grid-modalidades {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card-mod {
-            background-color: var(--blanco);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--chocolate-suave);
-        }
-
-        .card-mod h3 {
-            color: var(--chocolate-oscuro);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* CATÁLOGO DE POSTRES */
-        .catalogo {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--chocolate-oscuro);
-            margin-bottom: 3rem;
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .filter-btn {
-            background-color: var(--blanco);
-            border: 2px solid var(--chocolate-suave);
-            color: var(--chocolate-suave);
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--chocolate-suave);
-            color: var(--blanco);
-        }
-
-        .grid-productos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+        .productos-grid {
+            display: block;
         }
 
         .producto-card {
-            background-color: var(--blanco);
+            background: #fff;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 5px solid #ffb7b2;
         }
 
-        .producto-card:hover {
-            transform: translateY(-5px);
+        .producto-card h3 {
+            color: #5c4436;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
-        .producto-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: var(--crema-oscuro);
+        .precios-contenedor {
+            background-color: #faf6f0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
-        .producto-info {
-            padding: 1.5rem;
+        .precio-linea {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
         }
 
-        .producto-info h3 {
-            color: var(--chocolate-oscuro);
-            margin-bottom: 0.5rem;
+        .precio-linea strong {
+            color: #e57373;
         }
 
-        .precio {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: var(--chocolate-suave);
-            margin-bottom: 1rem;
+        .precio-linea .mayorista {
+            color: #2e7d32;
         }
 
-        .precio span {
-            font-size: 0.9rem;
-            color: #777;
-            font-weight: normal;
-        }
-
-        /* SECCIÓN MAYORISTAS / COTIZACIÓN */
-        .mayoristas {
-            background-color: var(--chocolate-suave);
-            color: var(--blanco);
-            padding: 4rem 0;
-        }
-
-        .mayoristas h2 {
-            color: var(--crema-oscuro);
-        }
-
-        .form-cotizacion {
-            max-width: 600px;
-            margin: 2rem auto 0 auto;
-            background-color: var(--blanco);
-            padding: 2.5rem;
-            border-radius: 10px;
-            color: var(--texto-oscuro);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .botones-agregar {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--chocolate-oscuro);
         }
 
-        .form-group input, .form-group textarea, .form-group select {
+        .btn-comprar {
+            background-color: #ffb7b2;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            transition: background 0.2s;
+        }
+
+        .btn-comprar.btn-mayor {
+            background-color: #a5d6a7;
+            color: #1b5e20;
+        }
+
+        .btn-comprar:hover {
+            opacity: 0.9;
+        }
+
+        .carrito-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .carrito-container h2 {
+            border-bottom: 2px solid #fcf8f2;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #5c4436;
+        }
+
+        .item-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+        }
+
+        .btn-eliminar {
+            background: none;
+            border: none;
+            color: #ff9aa2;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .total-seccion {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #fcf8f2;
+            padding-top: 15px;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        /* PIE DE PÁGINA */
-        footer {
-            background-color: var(--chocolate-oscuro);
-            color: var(--crema-oscuro);
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
             text-align: center;
-            padding: 2rem 0;
-            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            nav ul {
-                gap: 1rem;
-            }
-            .hero-content h2 {
-                font-size: 2rem;
-            }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            background-color: #5c4436;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <!-- ENCABEZADO Y NAVEGACIÓN -->
     <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <h1>Delicias <span>Rebe</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#catalogo">Catálogo</a></li>
-                    <li><a href="#mayoristas">Por Mayor</a></li>
-                </ul>
-            </nav>
-            <div class="cart-icon" onclick="alert('¡Próximamente podrás gestionar tu carrito directamente aquí!')">
-                🛒 Carrito (<span id="cart-count">0</span>)
-            </div>
-        </div>
+        <h1>Delicias Rebe</h1>
+        <p>Pastelería Artesanal - Tres Leches y más</p>
     </header>
 
-    <!-- SECCIÓN DE BIENVENIDA -->
-    <section id="inicio" class="hero">
-        <div class="container hero-content">
-            <h2>El Arte de Endulzar tus Momentos</h2>
-            <p>Disfruta de la mejor variedad de postres artesanales elaborados con ingredientes seleccionados. Atendemos pedidos familiares y grandes eventos comerciales.</p>
-            <a href="#catalogo" class="btn">Ver Catálogo</a>
-        </div>
-    </section>
+    <div class="aviso-b2b">
+        ¡Atención Hoteles y Restaurantes! Contamos con precios especiales al por mayor para su negocio.
+    </div>
 
-    <!-- SECCIÓN MODALIDADES -->
-    <section class="modalidades">
-        <div class="container">
-            <h2 class="section-title">Nuestras Modalidades de Venta</h2>
-            <div class="grid-modalidades">
-                <div class="card-mod">
-                    <h3>Venta al Menor</h3>
-                    <p>Perfecto para tus antojos diarios, celebraciones familiares o un detalle especial. Calidad gourmet directamente a tu mesa.</p>
-                </div>
-                <div class="card-mod">
-                    <h3>Venta al por Mayor</h3>
-                    <p>Ideal para cafeterías, restaurantes, eventos corporativos y distribución. Ofrecemos precios competitivos y un abastecimiento constante.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATÁLOGO DE PRODUCTOS -->
-    <section id="catalogo" class="catalogo">
-        <div class="container">
-            <h2 class="section-title">Nuestro Catálogo Base</h2>
+    <div class="container">
+        <div class="main-layout">
             
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
-                <button class="filter-btn" onclick="filterProducts('tortas')">Tortas</button>
-                <button class="filter-btn" onclick="filterProducts('bocaditos')">Bocaditos</button>
-                <button class="filter-btn" onclick="filterProducts('individuales')">Individuales</button>
+            <div class="col-productos">
+                <div class="productos-grid">
+                    
+                    <div class="producto-card">
+                        <h3>Torta de Tres Leches Tradicional</h3>
+                        <div class="precios-contenedor">
+                            <div class="precio-linea">
+                                <span>Precio Unitario (PVP):</span>
+                                <strong>$15.00</strong>
+                            </div>
+                            <div class="precio-linea">
+                                <span>Precio por Mayor (Hoteles/Restaurantes):</span>
+                                <strong class="mayorista">$12.00</strong>
+                            </div>
+                        </div>
+                        <div class="botones-agregar">
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Tres Leches Tradicional (Unitario)', 15.00)">+ Al Carrito (PVP)</button>
+                            <button class="btn-comprar btn-mayor" onclick="agregarAlCarrito('Tres Leches Tradicional (Por Mayor)', 12.00)">+ Al Carrito (Por Mayor)</button>
+                        </div>
+                    </div>
+
+                    <div class="producto-card">
+                        <h3>Torta de Tres Leches con Chocolate</h3>
+                        <div class="precios-contenedor">
+                            <div class="precio-linea">
+                                <span>Precio Unitario (PVP):</span>
+                                <strong>$17.50</strong>
+                            </div>
+                            <div class="precio-linea">
+                                <span>Precio por Mayor (Hoteles/Restaurantes):</span>
+                                <strong class="mayorista">$14.00</strong>
+                            </div>
+                        </div>
+                        <div class="botones-agregar">
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Tres Leches Chocolate (Unitario)', 17.50)">+ Al Carrito (PVP)</button>
+                            <button class="btn-comprar btn-mayor" onclick="agregarAlCarrito('Tres Leches Chocolate (Por Mayor)', 14.00)">+ Al Carrito (Por Mayor)</button>
+                        </div>
+                    </div>
+
+                    <div class="producto-card">
+                        <h3>Pie de Limón Gourmet</h3>
+                        <div class="precios-contenedor">
+                            <div class="precio-linea">
+                                <span>Precio Unitario (PVP):</span>
+                                <strong>$12.50</strong>
+                            </div>
+                            <div class="precio-linea">
+                                <span>Precio por Mayor (Hoteles/Restaurantes):</span>
+                                <strong class="mayorista">$10.00</strong>
+                            </div>
+                        </div>
+                        <div class="botones-agregar">
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Pie de Limón (Unitario)', 12.50)">+ Al Carrito (PVP)</button>
+                            <button class="btn-comprar btn-mayor" onclick="agregarAlCarrito('Pie de Limón (Por Mayor)', 10.00)">+ Al Carrito (Por Mayor)</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
-            <div class="grid-productos">
-                <!-- Producto 1 -->
-                <div class="producto-card" data-category="tortas">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Torta de Chocolate" class="producto-img">
-                    <div class="producto-info">
-                        <h3>Torta Suprema de Chocolate</h3>
-                        <p>Bizcocho húmedo relleno de manjar y cubierto con fudge artesanal.</p>
-                        <div class="precio">$18.00 <span>/ Unidad</span></div>
-                        <button class="btn" onclick="addToCart()">Agregar al Carrito</button>
+            <div class="col-carrito">
+                <aside class="carrito-container">
+                    <h2>Su Pedido Actual</h2>
+                    <div id="carrito-items">
+                        <p style="color: #999; text-align: center; padding: 10px;">El carrito está vacío.</p>
                     </div>
-                </div>
+                    
+                    <div class="total-seccion">
+                        <span>Total:</span>
+                        <span id="carrito-total">$0.00</span>
+                    </div>
 
-                <!-- Producto 2 -->
-                <div class="producto-card" data-category="individuales">
-                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=400&q=80" alt="Cheesecake" class="producto-img">
-                    <div class="producto-info">
-                        <h3>Cheesecake de Frutos Rojos</h3>
-                        <p>Base crocante, crema de queso suave y un coulis perfecto de frutas selectas.</p>
-                        <div class="precio">$22.00 <span>/ Unidad</span></div>
-                        <button class="btn" onclick="addToCart()">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- Producto 3 -->
-                <div class="producto-card" data-category="bocaditos">
-                    <img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?auto=format&fit=crop&w=400&q=80" alt="Cupcakes" class="producto-img">
-                    <div class="producto-info">
-                        <h3>Caja de Cupcakes Variados</h3>
-                        <p>Perfectos para eventos. Sabores de vainilla, chocolate y red velvet.</p>
-                        <div class="precio">$12.00 <span>/ Docena</span></div>
-                        <div class="precio" style="font-size:1rem; color:#d4a373;">Precio mayorista a partir de 5 docenas</div>
-                        <button class="btn" onclick="addToCart()">Agregar al Carrito</button>
-                    </div>
-                </div>
+                    <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+                        Confirmar y Enviar a WhatsApp 📲
+                    </button>
+                </aside>
             </div>
-        </div>
-    </section>
 
-    <!-- SECCIÓN MAYORISTAS (FORMULARIO) -->
-    <section id="mayoristas" class="mayoristas">
-        <div class="container">
-            <h2 class="section-title">¿Tienes un negocio o un gran evento?</h2>
-            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Ponte en contacto con nosotros. Ofrecemos catálogos personalizados, precios especiales por volumen y facilidades de entrega para mayoristas.</p>
-            
-            <form class="form-cotizacion" onsubmit="event.preventDefault(); alert('¡Muchas gracias! Tu solicitud de cotización para Delicias Rebe ha sido enviada con éxito. Nos comunicaremos contigo muy pronto.');">
-                <div class="form-group">
-                    <label for="nombre">Nombre o Empresa</label>
-                    <input type="text" id="nombre" required placeholder="Ej. Cafetería Central o Tu Nombre">
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico</label>
-                    <input type="email" id="correo" required placeholder="ejemplo@correo.com">
-                </div>
-                <div class="form-group">
-                    <label for="tipo">Tipo de Pedido</label>
-                    <select id="tipo">
-                        <option value="mayorista">Negocio / Distribución (Al por mayor)</option>
-                        <option value="evento">Eventos Especiales (Bodas, Cumpleaños)</option>
-                        <option value="menor">Pedido Personalizado (Al por menor)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Detalles del Pedido o Consulta</label>
-                    <textarea id="mensaje" rows="4" required placeholder="Cuéntanos qué postres necesitas y las cantidades aproximadas..."></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Solicitar Cotización Especial</button>
-            </form>
         </div>
-    </section>
+    </div>
 
-    <!-- PIE DE PÁGINA -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Delicias Rebe. Todos los derechos reservados.</p>
-            <p>Ventas al por mayor y menor.</p>
-        </div>
+        <p>&copy; 2026 Delicias Rebe. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- INTERACTIVIDAD DE LA PÁGINA -->
     <script>
-        let cartCount = 0;
+        let carrito = [];
 
-        function addToCart() {
-            cartCount++;
-            document.getElementById('cart-count').innerText = cartCount;
-            alert('¡Postre agregado con éxito al carrito!');
+        function agregarAlCarrito(nombre, precio) {
+            const productoExistente = carrito.find(item => item.nombre === nombre);
+
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                carrito.push({ nombre: nombre, precio: precio, candy: 1, cantidad: 1 });
+            }
+
+            actualizarInterfazCarrito();
         }
 
-        function filterProducts(category) {
-            const cards = document.querySelectorAll('.producto-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Cambiar clase activa en botones
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function eliminarDelCarrito(nombre) {
+            carrito = carrito.filter(item => item.nombre !== nombre);
+            actualizarInterfazCarrito();
+        }
 
-            // Filtrar tarjetas
-            cards.forEach(card => {
-                if (category === 'todos' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+        function actualizarInterfazCarrito() {
+            const contenedorItems = document.getElementById('carrito-items');
+            const contenedorTotal = document.getElementById('carrito-total');
+            
+            contenedorItems.innerHTML = '';
+            
+            if (carrito.length === 0) {
+                contenedorItems.innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">El carrito está vacío.</p>';
+                contenedorTotal.innerText = '$0.00';
+                return;
+            }
+
+            let total = 0;
+
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+
+                const div = document.createElement('div');
+                div.className = 'item-carrito';
+                div.innerHTML = `
+                    <div>
+                        <strong>${item.nombre}</strong><br>
+                        <small>${item.cantidad} x $${item.precio.toFixed(2)}</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <span>$${subtotal.toFixed(2)}</span>
+                        <button class="btn-eliminar" onclick="eliminarDelCarrito('${item.nombre}')">X</button>
+                    </div>
+                `;
+                contenedorItems.appendChild(div);
             });
+
+            contenedorTotal.innerText = `$${total.toFixed(2)}`;
+        }
+
+        function enviarWhatsApp() {
+            if (carrito.length === 0) {
+                alert("Por favor, agregue algún producto al carrito antes de enviar.");
+                return;
+            }
+
+            // Número configurado con el prefijo internacional de Ecuador
+            const numeroTelefono = "593995938594"; 
+
+            let mensaje = "¡Hola, Delicias Rebe! He armado mi pedido desde la página web y quiero coordinar los detalles:\n\n";
+            let total = 0;
+
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                mensaje += `🔹 ${item.cantidad}x ${item.nombre} - $${subtotal.toFixed(2)}\n`;
+            });
+
+            mensaje += `\n💰 *Total estimado:* $${total.toFixed(2)}\n\nQuedo atento para concretar la entrega y la forma de pago. ¡Muchas gracias!`;
+
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`;
+
+            window.open(urlWhatsApp, '_blank');
         }
     </script>
 </body>
