@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias Rebe | Pastelería Gourmet al por Mayor y Menor</title>
+    <style>
+        /* VARIABLES DE DISEÑO (Paleta Crema y Chocolate) */
+        :root {
+            --chocolate-oscuro: #2B1810;
+            --chocolate-suave: #4A3125;
+            --crema-principal: #FDF8F4;
+            --crema-oscuro: #F3E9DC;
+            --dorado-acento: #D4A373;
+            --texto-oscuro: #333333;
+            --blanco: #FFFFFF;
+        }
+
+        /* ESTILOS GENERALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--crema-principal);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+        header {
+            background-color: var(--chocolate-oscuro);
+            color: var(--blanco);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--crema-oscuro);
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--dorado-acento);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--crema-oscuro);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dorado-acento);
+        }
+
+        .cart-icon {
+            cursor: pointer;
+            position: relative;
+            background: var(--chocolate-suave);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        /* HERO SECTION (BIENVENIDA) */
+        .hero {
+            background: linear-gradient(rgba(43, 24, 16, 0.7), rgba(43, 24, 16, 0.7)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--blanco);
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--crema-oscuro);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--dorado-acento);
+            color: var(--chocolate-oscuro);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--crema-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* SECCIÓN DE MODALIDADES DE VENTA */
+        .modalidades {
+            padding: 4rem 0;
+            background-color: var(--crema-oscuro);
+            text-align: center;
+        }
+
+        .grid-modalidades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card-mod {
+            background-color: var(--blanco);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--chocolate-suave);
+        }
+
+        .card-mod h3 {
+            color: var(--chocolate-oscuro);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* CATÁLOGO DE POSTRES */
+        .catalogo {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--chocolate-oscuro);
+            margin-bottom: 3rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background-color: var(--blanco);
+            border: 2px solid var(--chocolate-suave);
+            color: var(--chocolate-suave);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--chocolate-suave);
+            color: var(--blanco);
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .producto-card {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--crema-oscuro);
+        }
+
+        .producto-info {
+            padding: 1.5rem;
+        }
+
+        .producto-info h3 {
+            color: var(--chocolate-oscuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .precio {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--chocolate-suave);
+            margin-bottom: 1rem;
+        }
+
+        .precio span {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: normal;
+        }
+
+        /* SECCIÓN MAYORISTAS / COTIZACIÓN */
+        .mayoristas {
+            background-color: var(--chocolate-suave);
+            color: var(--blanco);
+            padding: 4rem 0;
+        }
+
+        .mayoristas h2 {
+            color: var(--crema-oscuro);
+        }
+
+        .form-cotizacion {
+            max-width: 600px;
+            margin: 2rem auto 0 auto;
+            background-color: var(--blanco);
+            padding: 2.5rem;
+            border-radius: 10px;
+            color: var(--texto-oscuro);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--chocolate-oscuro);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: var(--chocolate-oscuro);
+            color: var(--crema-oscuro);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Delicias <span>Rebe</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#mayoristas">Por Mayor</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" onclick="alert('¡Próximamente podrás gestionar tu carrito directamente aquí!')">
+                🛒 Carrito (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN DE BIENVENIDA -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h2>El Arte de Endulzar tus Momentos</h2>
+            <p>Disfruta de la mejor variedad de postres artesanales elaborados con ingredientes seleccionados. Atendemos pedidos familiares y grandes eventos comerciales.</p>
+            <a href="#catalogo" class="btn">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN MODALIDADES -->
+    <section class="modalidades">
+        <div class="container">
+            <h2 class="section-title">Nuestras Modalidades de Venta</h2>
+            <div class="grid-modalidades">
+                <div class="card-mod">
+                    <h3>Venta al Menor</h3>
+                    <p>Perfecto para tus antojos diarios, celebraciones familiares o un detalle especial. Calidad gourmet directamente a tu mesa.</p>
+                </div>
+                <div class="card-mod">
+                    <h3>Venta al por Mayor</h3>
+                    <p>Ideal para cafeterías, restaurantes, eventos corporativos y distribución. Ofrecemos precios competitivos y un abastecimiento constante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section id="catalogo" class="catalogo">
+        <div class="container">
+            <h2 class="section-title">Nuestro Catálogo Base</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
+                <button class="filter-btn" onclick="filterProducts('tortas')">Tortas</button>
+                <button class="filter-btn" onclick="filterProducts('bocaditos')">Bocaditos</button>
+                <button class="filter-btn" onclick="filterProducts('individuales')">Individuales</button>
+            </div>
+
+            <div class="grid-productos">
+                <!-- Producto 1 -->
+                <div class="producto-card" data-category="tortas">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Torta de Chocolate" class="producto-img">
+                    <div class="producto-info">
+                        <h3>Torta Suprema de Chocolate</h3>
+                        <p>Bizcocho húmedo relleno de manjar y cubierto con fudge artesanal.</p>
+                        <div class="precio">$18.00 <span>/ Unidad</span></div>
+                        <button class="btn" onclick="addToCart()">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="producto-card" data-category="individuales">
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=400&q=80" alt="Cheesecake" class="producto-img">
+                    <div class="producto-info">
+                        <h3>Cheesecake de Frutos Rojos</h3>
+                        <p>Base crocante, crema de queso suave y un coulis perfecto de frutas selectas.</p>
+                        <div class="precio">$22.00 <span>/ Unidad</span></div>
+                        <button class="btn" onclick="addToCart()">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="producto-card" data-category="bocaditos">
+                    <img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?auto=format&fit=crop&w=400&q=80" alt="Cupcakes" class="producto-img">
+                    <div class="producto-info">
+                        <h3>Caja de Cupcakes Variados</h3>
+                        <p>Perfectos para eventos. Sabores de vainilla, chocolate y red velvet.</p>
+                        <div class="precio">$12.00 <span>/ Docena</span></div>
+                        <div class="precio" style="font-size:1rem; color:#d4a373;">Precio mayorista a partir de 5 docenas</div>
+                        <button class="btn" onclick="addToCart()">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN MAYORISTAS (FORMULARIO) -->
+    <section id="mayoristas" class="mayoristas">
+        <div class="container">
+            <h2 class="section-title">¿Tienes un negocio o un gran evento?</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Ponte en contacto con nosotros. Ofrecemos catálogos personalizados, precios especiales por volumen y facilidades de entrega para mayoristas.</p>
+            
+            <form class="form-cotizacion" onsubmit="event.preventDefault(); alert('¡Muchas gracias! Tu solicitud de cotización para Delicias Rebe ha sido enviada con éxito. Nos comunicaremos contigo muy pronto.');">
+                <div class="form-group">
+                    <label for="nombre">Nombre o Empresa</label>
+                    <input type="text" id="nombre" required placeholder="Ej. Cafetería Central o Tu Nombre">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" required placeholder="ejemplo@correo.com">
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de Pedido</label>
+                    <select id="tipo">
+                        <option value="mayorista">Negocio / Distribución (Al por mayor)</option>
+                        <option value="evento">Eventos Especiales (Bodas, Cumpleaños)</option>
+                        <option value="menor">Pedido Personalizado (Al por menor)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles del Pedido o Consulta</label>
+                    <textarea id="mensaje" rows="4" required placeholder="Cuéntanos qué postres necesitas y las cantidades aproximadas..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Solicitar Cotización Especial</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Delicias Rebe. Todos los derechos reservados.</p>
+            <p>Ventas al por mayor y menor.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVIDAD DE LA PÁGINA -->
+    <script>
+        let cartCount = 0;
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+            alert('¡Postre agregado con éxito al carrito!');
+        }
+
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.producto-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Cambiar clase activa en botones
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filtrar tarjetas
+            cards.forEach(card => {
+                if (category === 'todos' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
