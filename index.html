@@ -3,404 +3,647 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicias Rebe - Pastelería Artesanal</title>
+    <title>Delicias Rebe - Pastelería Fina & Alta Repostería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --color-primario: #8B5E3C; /* Café Gourmet Profundo */
+            --color-dorado: #D4AF37;   /* Dorado Premium */
+            --color-oscuro: #2C1A11;   /* Chocolate Oscuro */
+            --color-claro: #FDFBF7;    /* Crema Suave Premium */
+            --color-blanco: #ffffff;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-texto: 'Montserrat', sans-serif;
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #fcf8f2;
-            color: #4a3b32;
+            font-family: var(--fuente-texto);
+            background-color: var(--color-claro);
+            color: var(--color-oscuro);
+            line-height: 1.6;
         }
 
+        /* Encabezado y Navegación */
         header {
-            background-color: #ffb7b2;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background-color: var(--color-blanco);
+            box-shadow: 0 2px 15px rgba(44, 26, 17, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--color-dorado);
         }
 
-        header h1 {
-            color: #fff;
-            font-size: 2.6rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
-
-        header p {
-            color: #6d594f;
-            font-style: italic;
-            margin-top: 8px;
-            font-size: 1.1rem;
-        }
-
-        .aviso-b2b {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 12px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #c8e6c9;
-        }
-
-        .container {
+        .nav-contenedor {
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
-            display: block;
-        }
-
-        .main-layout {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        .col-productos {
-            display: table-cell;
-            width: 65%;
-            vertical-align: top;
-            padding-right: 20px;
-        }
-
-        .col-carrito {
-            display: table-cell;
-            width: 35%;
-            vertical-align: top;
-        }
-
-        @media (max-width: 768px) {
-            .col-productos, .col-carrito {
-                display: block;
-                width: 100%;
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-        }
-
-        .productos-grid {
-            display: block;
-        }
-
-        .producto-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-left: 5px solid #ffb7b2;
-        }
-
-        .producto-card h3 {
-            color: #5c4436;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .precios-contenedor {
-            background-color: #faf6f0;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .precio-linea {
+            margin: 0 auto;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-oscuro);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--color-dorado);
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--color-oscuro);
+            font-weight: 600;
             font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .precio-linea strong {
-            color: #e57373;
+        .menu a:hover {
+            color: var(--color-dorado);
         }
 
-        .precio-linea .mayorista {
-            color: #2e7d32;
-        }
-
-        .botones-agregar {
-            display: block;
-        }
-
-        .btn-comprar {
-            background-color: #ffb7b2;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
+        .icono-carrito-nav {
+            position: relative;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-right: 10px;
-            margin-bottom: 5px;
-            transition: background 0.2s;
+            font-size: 1.5rem;
+            color: var(--color-primario);
+            transition: transform 0.2s;
         }
 
-        .btn-comprar.btn-mayor {
-            background-color: #a5d6a7;
-            color: #1b5e20;
+        .icono-carrito-nav:hover {
+            transform: scale(1.1);
         }
 
-        .btn-comprar:hover {
-            opacity: 0.9;
+        .contador-carrito {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--color-dorado);
+            color: var(--color-oscuro);
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 50%;
+            font-weight: 700;
         }
 
-        .carrito-container {
-            background: white;
+        /* Sección Hero */
+        .hero {
+            background: linear-gradient(rgba(44, 26, 17, 0.55), rgba(44, 26, 17, 0.55)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--color-blanco);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .carrito-container h2 {
-            border-bottom: 2px solid #fcf8f2;
-            padding-bottom: 10px;
+        .hero h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 4rem;
             margin-bottom: 15px;
-            color: #5c4436;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+
+        /* Catálogo de Postres Gourmet */
+        .seccion-catalogo {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-seccion {
+            font-family: var(--fuente-titulos);
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--color-oscuro);
+        }
+
+        .titulo-seccion span {
+            display: block;
+            font-size: 1rem;
+            font-family: var(--fuente-texto);
+            text-transform: uppercase;
+            color: var(--color-dorado);
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .titulo-seccion::after {
+            content: '✨';
+            display: block;
+            font-size: 1.2rem;
+            color: var(--color-dorado);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .grid-postres {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .tarjeta-postre {
+            background-color: var(--color-blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(44, 26, 17, 0.05);
+            transition: transform 0.4s, box-shadow 0.4s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(139, 94, 60, 0.1);
+        }
+
+        .tarjeta-postre:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(44, 26, 17, 0.12);
+        }
+
+        .imagen-postre {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(139, 94, 60, 0.1);
+        }
+
+        .info-postre {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .info-postre h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--color-oscuro);
+        }
+
+        .info-postre p {
+            font-size: 0.95rem;
+            color: #55433C;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            font-weight: 400;
+        }
+
+        .btn-agregar {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            border: 1px solid var(--color-dorado);
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-family: var(--fuente-texto);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .btn-agregar:hover {
+            background-color: var(--color-dorado);
+            color: var(--color-oscuro);
+            font-weight: 700;
+        }
+
+        /* Sección del Carrito Premium */
+        .seccion-carrito {
+            max-width: 850px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: var(--color-blanco);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(44, 26, 17, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .lista-carrito {
+            margin-top: 25px;
         }
 
         .item-carrito {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #eee;
-            font-size: 0.95rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+        }
+
+        .detalles-item h4 {
+            font-size: 1.15rem;
+            color: var(--color-oscuro);
+            font-family: var(--fuente-titulos);
+        }
+
+        .controles-cantidad {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-cantidad {
+            background-color: #F4EFEA;
+            border: 1px solid rgba(139, 94, 60, 0.2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-oscuro);
+            transition: background-color 0.2s;
+        }
+
+        .btn-cantidad:hover {
+            background-color: var(--color-dorado);
         }
 
         .btn-eliminar {
             background: none;
             border: none;
-            color: #ff9aa2;
+            color: #C84B31;
             cursor: pointer;
-            font-weight: bold;
-            margin-left: 10px;
+            font-size: 1.2rem;
+            margin-left: 20px;
+            transition: transform 0.2s;
         }
 
-        .total-seccion {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            border-top: 2px solid #fcf8f2;
-            padding-top: 15px;
+        .btn-eliminar:hover {
+            transform: scale(1.1);
+        }
+
+        .carrito-vacio {
+            text-align: center;
+            color: #7A6961;
+            padding: 40px 0;
+            font-size: 1.05rem;
         }
 
         .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
+            background-color: #25d366;
+            color: var(--color-blanco);
             border: none;
-            padding: 14px;
+            padding: 16px 35px;
             border-radius: 8px;
-            width: 100%;
-            font-size: 1.05rem;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 15px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: background-color 0.3s;
+            font-family: var(--fuente-texto);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
-            background-color: #128C7E;
+            background-color: #1ebd57;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        footer {
+        /* Sección Redes Sociales Oficiales */
+        .seccion-redes {
+            background-color: #F4EFEA;
+            padding: 60px 20px;
             text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-            background-color: #5c4436;
-            color: #fff;
+            border-top: 1px solid rgba(139, 94, 60, 0.1);
+        }
+
+        .seccion-redes h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--color-oscuro);
+        }
+
+        .seccion-redes p {
+            margin-bottom: 30px;
+            color: #614E43;
+            font-size: 1rem;
+        }
+
+        .contenedor-enlaces-redes {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .enlace-red {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-blanco);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--color-oscuro);
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(44, 26, 17, 0.05);
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .enlace-red i {
+            font-size: 1.2rem;
+        }
+
+        .enlace-red.instagram:hover {
+            border-color: #E1306C;
+            color: #E1306C;
+            transform: translateY(-3px);
+        }
+
+        .enlace-red.facebook:hover {
+            border-color: #1877F2;
+            color: #1877F2;
+            transform: translateY(-3px);
+        }
+
+        .enlace-red.tiktok:hover {
+            border-color: #000000;
+            color: #000000;
+            transform: translateY(-3px);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 4px solid var(--color-dorado);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .menu { gap: 20px; }
+            .seccion-carrito { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Delicias Rebe</h1>
-        <p>Pastelería Artesanal - Tres Leches y más</p>
+        <div class="nav-contenedor">
+            <a href="#" class="logo">Delicias <span>Rebe</span></a>
+            <ul class="menu">
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#redes">Nuestras Redes</a></li>
+                <li><a href="#carrito">Pedido</a></li>
+                <li>
+                    <div class="icono-carrito-nav" onclick="document.getElementById('carrito').scrollIntoView({behavior: 'smooth'});">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <span class="contador-carrito" id="contador-nav">0</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </header>
 
-    <div class="aviso-b2b">
-        ¡Atención Hoteles y Restaurantes! Contamos con precios especiales al por mayor para su negocio.
-    </div>
+    <section class="hero">
+        <h1>Exquisitez Artesanal</h1>
+        <p>Alta repostería fina elaborada con ingredientes selectos para brindar una experiencia gourmet incomparable.</p>
+    </section>
 
-    <div class="container">
-        <div class="main-layout">
+    <section class="seccion-catalogo" id="catalogo">
+        <h2 class="titulo-seccion"><span>Selección Exclusiva</span>Nuestro Catálogo de Postres</h2>
+        <div class="grid-postres">
             
-            <div class="col-productos">
-                <div class="productos-grid">
-                    
-                    <div class="producto-card">
-                        <h3>Torta de Tres Leches Tradicional</h3>
-                        <div class="precios-contenedor">
-                            <div class="precio-linea">
-                                <span>Precio Unitario (PVP):</span>
-                                <strong>$15.00</strong>
-                            </div>
-                            <div class="precio-linea">
-                                <span>Precio por Mayor (Hoteles/Restaurantes):</span>
-                                <strong class="mayorista">$12.00</strong>
-                            </div>
-                        </div>
-                        <div class="botones-agregar">
-                            <button class="btn-comprar" onclick="agregarAlCarrito('Tres Leches Tradicional (Unitario)', 15.00)">+ Al Carrito (PVP)</button>
-                            <button class="btn-comprar btn-mayor" onclick="agregarAlCarrito('Tres Leches Tradicional (Por Mayor)', 12.00)">+ Al Carrito (Por Mayor)</button>
-                        </div>
-                    </div>
-
-                    <div class="producto-card">
-                        <h3>Torta de Tres Leches con Chocolate</h3>
-                        <div class="precios-contenedor">
-                            <div class="precio-linea">
-                                <span>Precio Unitario (PVP):</span>
-                                <strong>$17.50</strong>
-                            </div>
-                            <div class="precio-linea">
-                                <span>Precio por Mayor (Hoteles/Restaurantes):</span>
-                                <strong class="mayorista">$14.00</strong>
-                            </div>
-                        </div>
-                        <div class="botones-agregar">
-                            <button class="btn-comprar" onclick="agregarAlCarrito('Tres Leches Chocolate (Unitario)', 17.50)">+ Al Carrito (PVP)</button>
-                            <button class="btn-comprar btn-mayor" onclick="agregarAlCarrito('Tres Leches Chocolate (Por Mayor)', 14.00)">+ Al Carrito (Por Mayor)</button>
-                        </div>
-                    </div>
-
-                    <div class="producto-card">
-                        <h3>Pie de Limón Gourmet</h3>
-                        <div class="precios-contenedor">
-                            <div class="precio-linea">
-                                <span>Precio Unitario (PVP):</span>
-                                <strong>$12.50</strong>
-                            </div>
-                            <div class="precio-linea">
-                                <span>Precio por Mayor (Hoteles/Restaurantes):</span>
-                                <strong class="mayorista">$10.00</strong>
-                            </div>
-                        </div>
-                        <div class="botones-agregar">
-                            <button class="btn-comprar" onclick="agregarAlCarrito('Pie de Limón (Unitario)', 12.50)">+ Al Carrito (PVP)</button>
-                            <button class="btn-comprar btn-mayor" onclick="agregarAlCarrito('Pie de Limón (Por Mayor)', 10.00)">+ Al Carrito (Por Mayor)</button>
-                        </div>
-                    </div>
-
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed635d?auto=format&fit=crop&w=500&q=80" alt="Tarta de Frutos Rojos" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Tarta Real de Frutos Rojos</h3>
+                    <p>Masa sablé crocante con una sedosa y ligera crema pastelera, decorada finamente con una corona rebosante de fresas, arándanos y frambuesas silvestres.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Tarta Real de Frutos Rojos')">Agregar al Pedido</button>
                 </div>
             </div>
 
-            <div class="col-carrito">
-                <aside class="carrito-container">
-                    <h2>Su Pedido Actual</h2>
-                    <div id="carrito-items">
-                        <p style="color: #999; text-align: center; padding: 10px;">El carrito está vacío.</p>
-                    </div>
-                    
-                    <div class="total-seccion">
-                        <span>Total:</span>
-                        <span id="carrito-total">$0.00</span>
-                    </div>
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Volcán de Chocolate" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Volcán de Chocolate Superior</h3>
+                    <p>Bizcocho elaborado con cacao de pureza excepcional y un extraordinario centro líquido caliente que fluye con sublime delicadeza.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Volcán de Chocolate Superior')">Agregar al Pedido</button>
+                </div>
+            </div>
 
-                    <button class="btn-whatsapp" onclick="enviarWhatsApp()">
-                        Confirmar y Enviar a WhatsApp 📲
-                    </button>
-                </aside>
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Cheesecake de Maracuyá" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Cheesecake Velvet de Maracuyá</h3>
+                    <p>Fusión equilibrada de crema aterciopelada y un elegante contraste ácido, cubierto con una jalea artesanal translúcida de la fruta de la pasión.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Cheesecake Velvet de Maracuyá')">Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Torta Selva Negra" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Torta Selva Negra Tradicional</h3>
+                    <p>Suaves capas de bizcocho húmedo de chocolate, rellenas de crema chantilly premium y exquisitas cerezas maceradas de la casa.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Selva Negra Tradicional')">Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" alt="Mousse de Tres Chocolates" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Mousse Imperial de Tres Chocolates</h3>
+                    <p>Elegante trilogía de texturas aéreas combinando chocolate negro intenso, chocolate con leche suave y chocolate blanco refinado.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Mousse Imperial de Tres Chocolates')">Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Éclairs de Crema" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Éclairs Franceses de Alta Escuela</h3>
+                    <p>Delicada masa choux horneada a la perfección, rellena de crema pastelera aromatizada a la vainilla y un glaseado espejo espléndido.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Éclairs Franceses de Alta Escuela')">Agregar al Pedido</button>
+                </div>
             </div>
 
         </div>
-    </div>
+    </section>
+
+    <section class="seccion-redes" id="redes">
+        <h3>Siga Nuestras Páginas Oficiales</h3>
+        <p>Manténgase al tanto de nuestras nuevas creaciones, talleres y promociones exclusivas.</p>
+        <div class="contenedor-enlaces-redes">
+            <a href="#" target="_blank" class="enlace-red instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram Oficial
+            </a>
+            <a href="#" target="_blank" class="enlace-red facebook">
+                <i class="fa-brands fa-facebook-f"></i> Facebook Oficial
+            </a>
+            <a href="#" target="_blank" class="enlace-red tiktok">
+                <i class="fa-brands fa-tiktok"></i> TikTok Oficial
+            </a>
+        </div>
+    </section>
+
+    <section class="seccion-carrito" id="carrito">
+        <h2 class="titulo-seccion"><span>Su Selección</span>Carrito de Pedidos Gourmet</h2>
+        
+        <div id="contenedor-carrito">
+            </div>
+
+        <button class="btn-whatsapp" id="btn-enviar-pedido" onclick="enviarPedidoWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Confirmar Pedido vía WhatsApp
+        </button>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Delicias Rebe. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Delicias Rebe. Alta Repostería Elaborada con Dedicación y Distinción.</p>
     </footer>
 
     <script>
         let carrito = [];
 
-        function agregarAlCarrito(nombre, precio) {
-            const productoExistente = carrito.find(item => item.nombre === nombre);
-
-            if (productoExistente) {
-                productoExistente.cantidad += 1;
+        function agregarAlCarrito(nombrePostre) {
+            const itemExistente = carrito.find(item => item.nombre === nombrePostre);
+            if (itemExistente) {
+                itemExistente.cantidad += 1;
             } else {
-                carrito.push({ nombre: nombre, precio: precio, candy: 1, cantidad: 1 });
+                carrito.push({
+                    nombre: nombrePostre,
+                    cantidad: 1
+                });
             }
-
             actualizarInterfazCarrito();
         }
 
-        function eliminarDelCarrito(nombre) {
-            carrito = carrito.filter(item => item.nombre !== nombre);
+        function cambiarCantidad(nombrePostre, cambio) {
+            const item = carrito.find(item => item.nombre === nombrePostre);
+            if (item) {
+                item.cantidad += cambio;
+                if (item.cantidad <= 0) {
+                    eliminarDelCarrito(nombrePostre);
+                    return;
+                }
+            }
+            actualizarInterfazCarrito();
+        }
+
+        function eliminarDelCarrito(nombrePostre) {
+            carrito = carrito.filter(item => item.nombre !== nombrePostre);
             actualizarInterfazCarrito();
         }
 
         function actualizarInterfazCarrito() {
-            const contenedorItems = document.getElementById('carrito-items');
-            const contenedorTotal = document.getElementById('carrito-total');
+            const contenedor = document.getElementById('contenedor-carrito');
+            const contadorNav = document.getElementById('contador-nav');
+            const btnWhatsapp = document.getElementById('btn-enviar-pedido');
             
-            contenedorItems.innerHTML = '';
-            
+            const totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
+            contadorNav.textContent = totalProductos;
+
             if (carrito.length === 0) {
-                contenedorItems.innerHTML = '<p style="color: #999; text-align: center; padding: 10px;">El carrito está vacío.</p>';
-                contenedorTotal.innerText = '$0.00';
+                contenedor.innerHTML = '<div class="carrito-vacio"><i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; margin-bottom: 15px; display:block; color: #D4AF37;"></i>Su carrito está vacío. Le invitamos a deleitarse con nuestro catálogo.</div>';
+                btnWhatsapp.style.display = 'none';
                 return;
             }
 
-            let total = 0;
+            btnWhatsapp.style.display = 'flex';
+            let htmlCarrito = '<div class="lista-carrito">';
 
             carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                total += subtotal;
-
-                const div = document.createElement('div');
-                div.className = 'item-carrito';
-                div.innerHTML = `
-                    <div>
-                        <strong>${item.nombre}</strong><br>
-                        <small>${item.cantidad} x $${item.precio.toFixed(2)}</small>
-                    </div>
-                    <div style="text-align: right;">
-                        <span>$${subtotal.toFixed(2)}</span>
-                        <button class="btn-eliminar" onclick="eliminarDelCarrito('${item.nombre}')">X</button>
+                htmlCarrito += `
+                    <div class="item-carrito">
+                        <div class="detalles-item">
+                            <h4>${item.nombre}</h4>
+                        </div>
+                        <div class="controles-cantidad">
+                            <button class="btn-cantidad" onclick="cambiarCantidad('${item.nombre}', -1)">-</button>
+                            <span>${item.cantidad}</span>
+                            <button class="btn-cantidad" onclick="cambiarCantidad('${item.nombre}', 1)">+</button>
+                            <button class="btn-eliminar" onclick="eliminarDelCarrito('${item.nombre}')">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
-                contenedorItems.appendChild(div);
             });
 
-            contenedorTotal.innerText = `$${total.toFixed(2)}`;
+            htmlCarrito += '</div>';
+            contenedor.innerHTML = htmlCarrito;
         }
 
-        function enviarWhatsApp() {
-            if (carrito.length === 0) {
-                alert("Por favor, agregue algún producto al carrito antes de enviar.");
-                return;
-            }
+        function enviarPedidoWhatsApp() {
+            if (carrito.length === 0) return;
 
-            // Número configurado con el prefijo internacional de Ecuador
-            const numeroTelefono = "593995938594"; 
+            // NÚMERO DE TELÉFONO: Coloque aquí su número completo (ej. código de Ecuador 593 al inicio)
+            const numeroTelefono = "593900000000"; 
 
-            let mensaje = "¡Hola, Delicias Rebe! He armado mi pedido desde la página web y quiero coordinar los detalles:\n\n";
-            let total = 0;
+            let mensaje = "¡Hola Delicias Rebe! ✨ Deseo realizar la solicitud de los siguientes postres de su exclusivo catálogo:\n\n";
 
-            carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                total += subtotal;
-                mensaje += `🔹 ${item.cantidad}x ${item.nombre} - $${subtotal.toFixed(2)}\n`;
+            carrito.forEach((item, index) => {
+                mensaje += `${index + 1}. 🍰 *${item.nombre}* - Cantidad: [ ${item.cantidad} ]\n`;
             });
 
-            mensaje += `\n💰 *Total estimado:* $${total.toFixed(2)}\n\nQuedo atento para concretar la entrega y la forma de pago. ¡Muchas gracias!`;
+            mensaje += "\nPor favor, agradecería que me confirmen para coordinar la entrega y los detalles. ¡Muchas gracias! ❤️";
 
             const mensajeCodificado = encodeURIComponent(mensaje);
-            const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`;
+            const enlaceWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`;
 
-            window.open(urlWhatsApp, '_blank');
+            window.open(enlaceWhatsApp, '_blank');
         }
+
+        actualizarInterfazCarrito();
     </script>
 </body>
 </html>
