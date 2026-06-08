@@ -110,7 +110,7 @@
         /* Sección Hero */
         .hero {
             background: linear-gradient(rgba(44, 26, 17, 0.6), rgba(44, 26, 17, 0.6)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -135,7 +135,7 @@
             font-weight: 300;
         }
 
-        /* Banner de Avisos Importantes (Antelación y Eventos) */
+        /* Banner Informativo */
         .banner-info {
             background-color: var(--color-oscuro);
             color: var(--color-blanco);
@@ -166,7 +166,7 @@
             font-size: 1.3rem;
         }
 
-        /* Catálogo de Postres Gourmet */
+        /* Catálogo */
         .seccion-catalogo {
             max-width: 1200px;
             margin: 60px auto;
@@ -273,7 +273,7 @@
             font-weight: 700;
         }
 
-        /* Sección del Carrito e Información de Pedido */
+        /* Carrito */
         .seccion-carrito {
             max-width: 850px;
             margin: 60px auto;
@@ -284,7 +284,6 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        /* Opciones de Formulario Avanzadas */
         .formulario-pedido {
             margin-top: 25px;
             padding-top: 20px;
@@ -311,12 +310,6 @@
             background-color: var(--color-claro);
             color: var(--color-oscuro);
             font-size: 0.95rem;
-        }
-
-        .grupo-formulario select:focus, .grupo-formulario input:focus, .grupo-formulario textarea:focus {
-            outline: none;
-            border-color: var(--color-dorado);
-            background-color: var(--color-blanco);
         }
 
         .lista-carrito {
@@ -400,23 +393,11 @@
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1ebd57;
-        }
-
-        /* Sección Redes Sociales */
         .seccion-redes {
             background-color: #F4EFEA;
             padding: 50px 20px;
             text-align: center;
             border-top: 1px solid rgba(139, 94, 60, 0.1);
-        }
-
-        .seccion-redes h3 {
-            font-family: var(--fuente-titulos);
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-            color: var(--color-oscuro);
         }
 
         .contenedor-enlaces-redes {
@@ -437,28 +418,14 @@
             text-decoration: none;
             color: var(--color-oscuro);
             font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 10px rgba(44, 26, 17, 0.05);
-            transition: all 0.3s;
         }
 
-        .enlace-red.instagram:hover { color: #E1306C; transform: translateY(-3px); }
-        .enlace-red.facebook:hover { color: #1877F2; transform: translateY(-3px); }
-        .enlace-red.tiktok:hover { color: #000000; transform: translateY(-3px); }
-
-        /* Pie de página */
         footer {
             background-color: var(--color-oscuro);
             color: var(--color-blanco);
             text-align: center;
             padding: 40px 20px;
             border-top: 4px solid var(--color-dorado);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.6rem; }
-            .menu { display: none; } /* Oculto simplificado para móviles */
-            .seccion-carrito { padding: 25px; }
         }
     </style>
 </head>
@@ -471,93 +438,87 @@
                 <li><a href="#catalogo">Catálogo Gourmet</a></li>
                 <li><a href="#carrito">Hacer Pedido</a></li>
                 <li><a href="#redes">Redes Sociales</a></li>
-                <li>
-                    <div class="icono-carrito-nav" onclick="document.getElementById('carrito').scrollIntoView({behavior: 'smooth'});">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                        <span class="contador-carrito" id="contador-nav">0</span>
-                    </div>
-                </li>
             </ul>
         </div>
     </header>
 
     <section class="hero">
         <h1>Delicias Rebe</h1>
-        <p>Endulza tu día con lo mejor de la vida. Alta repostería artesanal creada para brindar experiencias gastronómicas inolvidables.</p>
+        <p>Alta repostería artesanal creada para brindar experiencias gastronómicas inolvidables bajo pedido.</p>
     </section>
 
     <section class="banner-info">
         <div class="banner-info-contenedor">
-            <div class="info-item">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>Pedidos con Antelación (Bajo Reserva)</span>
-            </div>
-            <div class="info-item">
-                <i class="fa-solid fa-cake-slice"></i>
-                <span>Pedidos al Por Mayor y Menor</span>
-            </div>
-            <div class="info-item">
-                <i class="fa-solid fa-champagne-glasses"></i>
-                <span>Atención Especial para Todo Tipo de Eventos</span>
-            </div>
+            <div class="info-item"><i class="fa-solid fa-calendar-check"></i> <span>Pedidos con Antelación</span></div>
+            <div class="info-item"><i class="fa-solid fa-cake-slice"></i> <span>Por Mayor y Menor</span></div>
+            <div class="info-item"><i class="fa-solid fa-champagne-glasses"></i> <span>Todo Tipo de Postres para Eventos</span></div>
         </div>
     </section>
 
     <section class="seccion-catalogo" id="catalogo">
-        <h2 class="titulo-seccion"><span>Nuestra Selección Exclusiva</span>Catálogo de Pastelería Fina</h2>
+        <h2 class="titulo-seccion"><span>Exquisitez Variada</span>Catálogo de Pastelería</h2>
         <div class="grid-postres">
             
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80" alt="Torta Tres Leches con Durazno" class="imagen-postre">
+                <img src="tres-leches.jpg" alt="Torta de Tres Leches con Durazno" class="imagen-postre" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80'">
                 <div class="info-postre">
-                    <h3>Torta Tres Leches con Durazno</h3>
-                    <p>Esponjoso bizcocho tradicional minuciosamente humedecido con nuestra mezcla exclusiva de tres leches, coronado con crema sedosa y finos duraznos seleccionados.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Tres Leches con Durazno')">Agregar al Pedido</button>
+                    <h3>Torta de Tres Leches con Durazno</h3>
+                    <p>Esponjoso bizcocho tradicional humedecido minuciosamente con nuestra receta de tres leches y decorado con una fina corona de duraznos en almíbar.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Tres Leches con Durazno')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=500&q=80" alt="Torta de Zanahoria y Nueces" class="imagen-postre">
+                <img src="zanahoria.jpg" alt="Torta de Zanahoria y Nueces" class="imagen-postre" onerror="this.src='https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=500&q=80'">
                 <div class="info-postre">
-                    <h3>Torta Premium de Zanahoria y Nueces</h3>
-                    <p>Suave y especiada masa artesanal enriquecida con zanahoria rallada fresca y trozos crocantes de nuez premium, cubierta con una delicada capa frosting de la casa.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Premium de Zanahoria y Nueces')">Agregar al Pedido</button>
+                    <h3>Torta de Zanahoria y Nueces</h3>
+                    <p>Suave y especiada masa artesanal enriquecida con zanahoria rallada fresca y trozos crocantes de nueces seleccionadas, cubierta con frosting cremoso.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Zanahoria y Nueces')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Porción de Torta de Chocolate con Fresas" class="imagen-postre">
+                <img src="chocolate.jpg" alt="Torta de Chocolate con Fresas" class="imagen-postre" onerror="this.src='https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80'">
                 <div class="info-postre">
-                    <h3>Torta de Chocolate de la Casa con Fresas</h3>
-                    <p>Exquisito bizcocho húmedo de puro cacao artesanal, cubierto con un untuoso e intenso fudge de chocolate de alta escuela y decorado con fresas frescas.</p>
+                    <h3>Torta de Chocolate con Fresas</h3>
+                    <p>Exquisito bizcocho húmedo de puro cacao artesanal, cubierto con un untuoso fudge casero e intenso y decorado con fresas frescas.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Chocolate con Fresas')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Cheesecake Velvet de Maracuyá" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Torta Chocolate Café" class="imagen-postre">
                 <div class="info-postre">
-                    <h3>Cheesecake Velvet de Maracuyá</h3>
-                    <p>Fusión cremosa horneada a la perfección sobre base crujiente de galleta, bañada con una jalea artesanal traslúcida y brillante de pura fruta de la pasión.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Cheesecake Velvet de Maracuyá')">Agregar al Pedido</button>
+                    <h3>Torta de Chocolate con Café</h3>
+                    <p>Una refinada combinación de bizcocho húmedo de chocolate oscuro balanceado perfectamente con una sedosa crema moka aromatizada con café.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Chocolate con Café')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" alt="Mousse Imperial de Tres Chocolates" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed635d?auto=format&fit=crop&w=500&q=80" alt="Tres Leches de Fresa" class="imagen-postre">
                 <div class="info-postre">
-                    <h3>Mousse Imperial de Tres Chocolates</h3>
-                    <p>Trilogía perfecta de texturas ligeras y aéreas que combinan armoniosamente chocolate amargo, chocolate con leche y chocolate blanco refinado.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Mousse Imperial de Tres Chocolates')">Agregar al Pedido</button>
+                    <h3>Torta Tres Leches de Fresas</h3>
+                    <p>Nuestra masa tradicional bañada en tres leches premium, combinada con una mermelada artesanal de fresas silvestres y cobertura ligera.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Tres Leches de Fresas')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Éclairs Franceses" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Flan tradicional" class="imagen-postre">
                 <div class="info-postre">
-                    <h3>Éclairs Franceses de Crema</h3>
-                    <p>Tradicional masa choux horneada, rellena de una sedosa crema pastelera aromatizada con vainas de vainilla natural y un glaseado de espejo impecable.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Éclairs Franceses de Crema')">Agregar al Pedido</button>
+                    <h3>Flan Cremoso Tradicional</h3>
+                    <p>Clásica receta de textura sedosa y firme, horneada lentamente a baño María con un baño de caramelo dorado brillante artesanal.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Flan Cremoso Tradicional')">Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Cheesecake" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Cheesecake de Maracuyá</h3>
+                    <p>Pastel de queso crema horneado sobre base crocante de galletas, cubierto con un coulis brillante y translúcido de pura fruta de la pasión.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Cheesecake de Maracuyá')">Agregar al Pedido</button>
                 </div>
             </div>
 
@@ -566,46 +527,35 @@
 
     <section class="seccion-carrito" id="carrito">
         <h2 class="titulo-seccion"><span>Su Selección</span>Carrito de Pedidos Gourmet</h2>
-        
-        <div id="contenedor-carrito">
-            </div>
+        <div id="contenedor-carrito"></div>
 
         <div class="formulario-pedido" id="formulario-detalles" style="display: none;">
             <div class="grupo-formulario">
                 <label for="metodo-entrega">Método de Entrega preferido:</label>
                 <select id="metodo-entrega">
-                    <option value="Retiro en el Local">Retirar en el Local (Sin costo adicional)</option>
-                    <option value="Envío a Domicilio">Envío a Domicilio (Coordinar tarifa de transporte)</option>
+                    <option value="Retiro en el Local">Retirar en el Local (Jaramijó / Manta)</option>
+                    <option value="Envío a Domicilio">Envío a Domicilio (Coordinar tarifa)</option>
                 </select>
             </div>
             <div class="grupo-formulario">
-                <label for="fecha-entrega">Fecha y Hora sugerida para la entrega (Con antelación):</label>
-                <input type="text" id="fecha-entrega" placeholder="Ej: Sábado por la tarde / Fecha específica">
+                <label for="fecha-entrega">Fecha y Hora aproximada para su Pedido (Con antelación):</label>
+                <input type="text" id="fecha-entrega" placeholder="Ej: Sábado 4:00 PM / Mañana por la tarde">
             </div>
             <div class="grupo-formulario">
-                <label for="notas-pedido">Notas especiales o personalización:</label>
-                <textarea id="notas-pedido" rows="3" placeholder="Ej: Escribir un nombre, empaque para regalo, detalles especiales, etc."></textarea>
+                <label for="notas-pedido">Notas especiales o detalles de personalización (Eventos, por mayor, etc.):</label>
+                <textarea id="notas-pedido" rows="3" placeholder="Ej: Detallar si es un pedido grande para eventos o colocar un nombre en la torta."></textarea>
             </div>
-            
             <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
-                <i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar Pedido Directo al Celular
+                <i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar Pedido al Celular
             </button>
         </div>
     </section>
 
     <section class="seccion-redes" id="redes">
         <h3>Siga Nuestras Páginas Oficiales</h3>
-        <p>Manténgase al tanto de todas las exquisiteces y nuevos postres que preparamos continuamente.</p>
+        <p>Manténgase al tanto de todas las exquisiteces que preparamos continuamente.</p>
         <div class="contenedor-enlaces-redes">
-            <a href="https://www.instagram.com/ddelcias_rebe" target="_blank" class="enlace-red instagram">
-                <i class="fa-brands fa-instagram"></i> Instagram (@ddelcias_rebe)
-            </a>
-            <a href="#" target="_blank" class="enlace-red facebook">
-                <i class="fa-brands fa-facebook-f"></i> Facebook Oficial
-            </a>
-            <a href="#" target="_blank" class="enlace-red tiktok">
-                <i class="fa-brands fa-tiktok"></i> TikTok Oficial
-            </a>
+            <a href="https://www.instagram.com/ddelcias_rebe" target="_blank" class="enlace-red"><i class="fa-brands fa-instagram"></i> Instagram (@ddelcias_rebe)</a>
         </div>
     </section>
 
@@ -621,10 +571,7 @@
             if (itemExistente) {
                 itemExistente.cantidad += 1;
             } else {
-                carrito.push({
-                    nombre: nombrePostre,
-                    cantidad: 1
-                });
+                carrito.push({ nombre: nombrePostre, cantidad: 1 });
             }
             actualizarInterfazCarrito();
         }
@@ -652,66 +599,51 @@
             const formulario = document.getElementById('formulario-detalles');
             
             const totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
-            contadorNav.textContent = totalProductos;
+            if(contadorNav) contadorNav.textContent = totalProductos;
 
             if (carrito.length === 0) {
-                contenedor.innerHTML = '<div class="carrito-vacio"><i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; margin-bottom: 15px; display:block; color: #D4AF37;"></i>Su carrito está vacío. Le invitamos a deleitarse con nuestro catálogo y seleccionar sus productos favoritos.</div>';
+                contenedor.innerHTML = '<div class="carrito-vacio"><i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; margin-bottom: 15px; display:block; color: #D4AF37;"></i>Su carrito está vacío. Elija sus productos favoritos.</div>';
                 formulario.style.display = 'none';
                 return;
             }
 
             formulario.style.display = 'block';
             let htmlCarrito = '<div class="lista-carrito">';
-
             carrito.forEach(item => {
                 htmlCarrito += `
                     <div class="item-carrito">
-                        <div class="detalles-item">
-                            <h4>${item.nombre}</h4>
-                        </div>
+                        <div class="detalles-item"><h4>${item.nombre}</h4></div>
                         <div class="controles-cantidad">
                             <button class="btn-cantidad" onclick="cambiarCantidad('${item.nombre}', -1)">-</button>
                             <span>${item.cantidad}</span>
                             <button class="btn-cantidad" onclick="cambiarCantidad('${item.nombre}', 1)">+</button>
-                            <button class="btn-eliminar" onclick="eliminarDelCarrito('${item.nombre}')">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
+                            <button class="btn-eliminar" onclick="eliminarDelCarrito('${item.nombre}')"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
-
             htmlCarrito += '</div>';
             contenedor.innerHTML = htmlCarrito;
         }
 
         function enviarPedidoWhatsApp() {
             if (carrito.length === 0) return;
-
-            // TU NÚMERO DE TELÉFONO REAL CONFIGURADO
             const numeroTelefono = "593995938594"; 
-
-            // Recopilación de datos del formulario útil
             const metodoEntrega = document.getElementById('metodo-entrega').value;
-            const fechaEntrega = document.getElementById('fecha-entrega').value || "A convenir con el maestro repostero";
-            const notas = document.getElementById('notas-pedido').value || "Sin observaciones adicionales";
+            const fechaEntrega = document.getElementById('fecha-entrega').value || "A convenir";
+            const notas = document.getElementById('notas-pedido').value || "Sin observaciones";
 
-            let mensaje = "¡Hola *Delicias Rebe*! ✨ Deseo realizar la solicitud de los siguientes postres gourmet de su catálogo:\n\n";
-
+            let mensaje = "¡Hola *Delicias Rebe*! ✨ Deseo realizar la solicitud de los siguientes postres:\n\n";
             carrito.forEach((item, index) => {
                 mensaje += `${index + 1}. 🍰 *${item.nombre}* — Cantidad: [ ${item.cantidad} ]\n`;
             });
 
-            mensaje += `\n📌 *Detalles de la Entrega:*`;
-            mensaje += `\n» *Método:* ${metodoEntrega}`;
-            mensaje += `\n» *Fecha/Hora sugerida:* ${fechaEntrega}`;
-            mensaje += `\n» *Notas/Personalización:* ${notas}`;
-            mensaje += "\n\nQuedo atento a su confirmación para coordinar los detalles. ¡Muchas gracias! ❤️";
+            mensaje += `\n📌 *Detalles:*`;
+            mensaje += `\n» *Entrega:* ${metodoEntrega}`;
+            mensaje += `\n» *Fecha/Hora:* ${fechaEntrega}`;
+            mensaje += `\n» *Notas:* ${notas}`;
+            mensaje += "\n\nQuedo atento para coordinar los detalles. ¡Muchas gracias!";
 
-            const mensajeCodificado = encodeURIComponent(mensaje);
-            const enlaceWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`;
-
-            window.open(enlaceWhatsApp, '_blank');
+            window.open(`https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
 
         actualizarInterfazCarrito();
