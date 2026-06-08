@@ -109,8 +109,8 @@
 
         /* Sección Hero */
         .hero {
-            background: linear-gradient(rgba(44, 26, 17, 0.6), rgba(44, 26, 17, 0.6)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 50vh;
+            background: linear-gradient(rgba(44, 26, 17, 0.75), rgba(44, 26, 17, 0.75)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 45vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -122,13 +122,13 @@
 
         .hero h1 {
             font-family: var(--fuente-titulos);
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 25px;
             max-width: 750px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
@@ -223,11 +223,59 @@
             box-shadow: 0 12px 30px rgba(44, 26, 17, 0.12);
         }
 
-        .imagen-postre {
+        .contenedor-imagen {
             width: 100%;
             height: 270px;
+            position: relative;
+            background-color: #3e2719;
+            overflow: hidden;
+        }
+
+        .imagen-postre {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-bottom: 2px solid rgba(139, 94, 60, 0.1);
+            display: block;
+        }
+
+        /* Cuadro de respaldo elegante si la imagen local no carga */
+        .marcador-respaldo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2C1A11 0%, #4a2f20 100%);
+            color: #FDFBF7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .marcador-respaldo i {
+            font-size: 3rem;
+            color: var(--color-dorado);
+            margin-bottom: 12px;
+        }
+
+        .marcador-respaldo span {
+            font-family: var(--fuente-titulos);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .marcador-respaldo p {
+            font-size: 0.8rem;
+            color: var(--color-dorado);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .info-postre {
@@ -393,6 +441,10 @@
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
+        .btn-whatsapp:hover {
+            background-color: #1ebd57;
+        }
+
         .seccion-redes {
             background-color: #F4EFEA;
             padding: 50px 20px;
@@ -460,64 +512,113 @@
         <div class="grid-postres">
             
             <div class="tarjeta-postre">
-                <img src="tres-leches.jpg" alt="Torta de Tres Leches con Durazno" class="imagen-postre" onerror="this.src='https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80'">
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-cake-slice"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Tres Leches con Durazno</p>
+                    </div>
+                    <img src="tres-leches-durazno.jpg" alt="Torta de Tres Leches con Durazno" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
+                </div>
                 <div class="info-postre">
                     <h3>Torta de Tres Leches con Durazno</h3>
-                    <p>Esponjoso bizcocho tradicional humedecido minuciosamente con nuestra receta de tres leches y decorado con una fina corona de duraznos en almíbar.</p>
+                    <p>Esponjoso bizcocho tradicional humedecido minuciosamente con nuestra receta exclusiva de tres leches y decorado con una fina corona de duraznos seleccionados.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Tres Leches con Durazno')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="zanahoria.jpg" alt="Torta de Zanahoria y Nueces" class="imagen-postre" onerror="this.src='https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=500&q=80'">
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-cake-slice"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Tres Leches con Fresas</p>
+                    </div>
+                    <img src="tres-leches-fresas.jpg" alt="Torta de Tres Leches con Fresas" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
+                </div>
+                <div class="info-postre">
+                    <h3>Torta de Tres Leches con Fresas</h3>
+                    <p>Nuestra masa suave tradicional bañada generosamente en tres leches, combinada con fresas frescas cortadas y una cobertura ligera de la casa.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Tres Leches con Fresas')">Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-postre">
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-carrot"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Zanahoria y Nueces</p>
+                    </div>
+                    <img src="zanahoria-nueces.jpg" alt="Torta de Zanahoria y Nueces" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
+                </div>
                 <div class="info-postre">
                     <h3>Torta de Zanahoria y Nueces</h3>
-                    <p>Suave y especiada masa artesanal enriquecida con zanahoria rallada fresca y trozos crocantes de nueces seleccionadas, cubierta con frosting cremoso.</p>
+                    <p>Masa artesanal perfectamente especiada con zanahoria rallada natural y trozos crocantes de nueces premium, cubierta con nuestro frosting cremoso exclusivo.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Zanahoria y Nueces')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="chocolate.jpg" alt="Torta de Chocolate con Fresas" class="imagen-postre" onerror="this.src='https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80'">
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-ice-cream"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Chocolate con Fresas</p>
+                    </div>
+                    <img src="chocolate-fresas.jpg" alt="Torta de Chocolate con Fresas" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
+                </div>
                 <div class="info-postre">
                     <h3>Torta de Chocolate con Fresas</h3>
-                    <p>Exquisito bizcocho húmedo de puro cacao artesanal, cubierto con un untuoso fudge casero e intenso y decorado con fresas frescas.</p>
+                    <p>Exquisito bizcocho húmedo elaborado con puro cacao, relleno y cubierto con un untuoso fudge casero intenso y decorado con fresas seleccionadas.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Chocolate con Fresas')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Torta Chocolate Café" class="imagen-postre">
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Chocolate con Café</p>
+                    </div>
+                    <img src="chocolate-cafe.jpg" alt="Torta de Chocolate con Café" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
+                </div>
                 <div class="info-postre">
                     <h3>Torta de Chocolate con Café</h3>
-                    <p>Una refinada combinación de bizcocho húmedo de chocolate oscuro balanceado perfectamente con una sedosa crema moka aromatizada con café.</p>
+                    <p>Una sofisticada combinación para los amantes del buen café: bizcocho húmedo de cacao con capas de crema moka suave finamente aromatizada.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Chocolate con Café')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed635d?auto=format&fit=crop&w=500&q=80" alt="Tres Leches de Fresa" class="imagen-postre">
-                <div class="info-postre">
-                    <h3>Torta Tres Leches de Fresas</h3>
-                    <p>Nuestra masa tradicional bañada en tres leches premium, combinada con una mermelada artesanal de fresas silvestres y cobertura ligera.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Tres Leches de Fresas')">Agregar al Pedido</button>
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-custard"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Flan Tradicional</p>
+                    </div>
+                    <img src="flan-cremoso.jpg" alt="Flan Cremoso Tradicional" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
                 </div>
-            </div>
-
-            <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Flan tradicional" class="imagen-postre">
                 <div class="info-postre">
                     <h3>Flan Cremoso Tradicional</h3>
-                    <p>Clásica receta de textura sedosa y firme, horneada lentamente a baño María con un baño de caramelo dorado brillante artesanal.</p>
+                    <p>Clásica receta de textura sedosa y firme, horneada lentamente a baño María y bañada en un caramelo artesanal de brillo perfecto.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Flan Cremoso Tradicional')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Cheesecake" class="imagen-postre">
+                <div class="contenedor-imagen">
+                    <div class="marcador-respaldo">
+                        <i class="fa-solid fa-stroopwafel"></i>
+                        <span>Delicias Rebe</span>
+                        <p>Cheesecake de Maracuyá</p>
+                    </div>
+                    <img src="cheesecake-maracuya.jpg" alt="Cheesecake de Maracuyá" class="imagen-postre" onload="this.previousElementSibling.style.display='none'">
+                </div>
                 <div class="info-postre">
                     <h3>Cheesecake de Maracuyá</h3>
-                    <p>Pastel de queso crema horneado sobre base crocante de galletas, cubierto con un coulis brillante y translúcido de pura fruta de la pasión.</p>
+                    <p>Delicado pastel de queso crema horneado sobre base crujiente de galleta, cubierto con un coulis brillante y agridulce de pura fruta de la pasión.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Cheesecake de Maracuyá')">Agregar al Pedido</button>
                 </div>
             </div>
@@ -595,11 +696,9 @@
 
         function actualizarInterfazCarrito() {
             const contenedor = document.getElementById('contenedor-carrito');
-            const contadorNav = document.getElementById('contador-nav');
             const formulario = document.getElementById('formulario-detalles');
             
-            const totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
-            if(contadorNav) contadorNav.textContent = totalProductos;
+            let totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
 
             if (carrito.length === 0) {
                 contenedor.innerHTML = '<div class="carrito-vacio"><i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; margin-bottom: 15px; display:block; color: #D4AF37;"></i>Su carrito está vacío. Elija sus productos favoritos.</div>';
