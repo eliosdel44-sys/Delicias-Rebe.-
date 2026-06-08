@@ -109,8 +109,8 @@
 
         /* Sección Hero */
         .hero {
-            background: linear-gradient(rgba(44, 26, 17, 0.55), rgba(44, 26, 17, 0.55)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 65vh;
+            background: linear-gradient(rgba(44, 26, 17, 0.6), rgba(44, 26, 17, 0.6)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -122,38 +122,68 @@
 
         .hero h1 {
             font-family: var(--fuente-titulos);
-            font-size: 4rem;
+            font-size: 3.8rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            font-style: italic;
         }
 
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
+            margin-bottom: 25px;
+            max-width: 750px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
             font-weight: 300;
+        }
+
+        /* Banner de Avisos Importantes (Antelación y Eventos) */
+        .banner-info {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--color-dorado);
+        }
+
+        .banner-info-contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .info-item i {
+            color: var(--color-dorado);
+            font-size: 1.3rem;
         }
 
         /* Catálogo de Postres Gourmet */
         .seccion-catalogo {
             max-width: 1200px;
-            margin: 80px auto;
+            margin: 60px auto;
             padding: 0 20px;
         }
 
         .titulo-seccion {
             font-family: var(--fuente-titulos);
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 50px;
+            font-size: 2.6rem;
+            margin-bottom: 45px;
             color: var(--color-oscuro);
         }
 
         .titulo-seccion span {
             display: block;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-family: var(--fuente-texto);
             text-transform: uppercase;
             color: var(--color-dorado);
@@ -165,7 +195,7 @@
         .titulo-seccion::after {
             content: '✨';
             display: block;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--color-dorado);
             text-align: center;
             margin-top: 10px;
@@ -195,13 +225,13 @@
 
         .imagen-postre {
             width: 100%;
-            height: 260px;
+            height: 270px;
             object-fit: cover;
             border-bottom: 2px solid rgba(139, 94, 60, 0.1);
         }
 
         .info-postre {
-            padding: 30px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -209,7 +239,7 @@
 
         .info-postre h3 {
             font-family: var(--fuente-titulos);
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             margin-bottom: 12px;
             color: var(--color-oscuro);
         }
@@ -217,9 +247,8 @@
         .info-postre p {
             font-size: 0.95rem;
             color: #55433C;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             flex-grow: 1;
-            font-weight: 400;
         }
 
         .btn-agregar {
@@ -244,10 +273,10 @@
             font-weight: 700;
         }
 
-        /* Sección del Carrito Premium */
+        /* Sección del Carrito e Información de Pedido */
         .seccion-carrito {
             max-width: 850px;
-            margin: 80px auto;
+            margin: 60px auto;
             padding: 40px;
             background-color: var(--color-blanco);
             border-radius: 15px;
@@ -255,20 +284,55 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .lista-carrito {
+        /* Opciones de Formulario Avanzadas */
+        .formulario-pedido {
             margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(139, 94, 60, 0.2);
+        }
+
+        .grupo-formulario {
+            margin-bottom: 20px;
+        }
+
+        .grupo-formulario label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .grupo-formulario select, .grupo-formulario input, .grupo-formulario textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 94, 60, 0.3);
+            font-family: var(--fuente-texto);
+            background-color: var(--color-claro);
+            color: var(--color-oscuro);
+            font-size: 0.95rem;
+        }
+
+        .grupo-formulario select:focus, .grupo-formulario input:focus, .grupo-formulario textarea:focus {
+            outline: none;
+            border-color: var(--color-dorado);
+            background-color: var(--color-blanco);
+        }
+
+        .lista-carrito {
+            margin-top: 15px;
         }
 
         .item-carrito {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(139, 94, 60, 0.1);
         }
 
         .detalles-item h4 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--color-oscuro);
             font-family: var(--fuente-titulos);
         }
@@ -303,20 +367,15 @@
             border: none;
             color: #C84B31;
             cursor: pointer;
-            font-size: 1.2rem;
-            margin-left: 20px;
-            transition: transform 0.2s;
-        }
-
-        .btn-eliminar:hover {
-            transform: scale(1.1);
+            font-size: 1.1rem;
+            margin-left: 15px;
         }
 
         .carrito-vacio {
             text-align: center;
             color: #7A6961;
-            padding: 40px 0;
-            font-size: 1.05rem;
+            padding: 30px 0;
+            font-size: 1rem;
         }
 
         .btn-whatsapp {
@@ -329,7 +388,7 @@
             font-weight: 700;
             cursor: pointer;
             width: 100%;
-            margin-top: 35px;
+            margin-top: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -343,13 +402,12 @@
 
         .btn-whatsapp:hover {
             background-color: #1ebd57;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* Sección Redes Sociales Oficiales */
+        /* Sección Redes Sociales */
         .seccion-redes {
             background-color: #F4EFEA;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-top: 1px solid rgba(139, 94, 60, 0.1);
         }
@@ -357,21 +415,16 @@
         .seccion-redes h3 {
             font-family: var(--fuente-titulos);
             font-size: 1.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--color-oscuro);
-        }
-
-        .seccion-redes p {
-            margin-bottom: 30px;
-            color: #614E43;
-            font-size: 1rem;
         }
 
         .contenedor-enlaces-redes {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
+            margin-top: 25px;
         }
 
         .enlace-red {
@@ -387,30 +440,11 @@
             font-size: 0.95rem;
             box-shadow: 0 4px 10px rgba(44, 26, 17, 0.05);
             transition: all 0.3s;
-            border: 1px solid transparent;
         }
 
-        .enlace-red i {
-            font-size: 1.2rem;
-        }
-
-        .enlace-red.instagram:hover {
-            border-color: #E1306C;
-            color: #E1306C;
-            transform: translateY(-3px);
-        }
-
-        .enlace-red.facebook:hover {
-            border-color: #1877F2;
-            color: #1877F2;
-            transform: translateY(-3px);
-        }
-
-        .enlace-red.tiktok:hover {
-            border-color: #000000;
-            color: #000000;
-            transform: translateY(-3px);
-        }
+        .enlace-red.instagram:hover { color: #E1306C; transform: translateY(-3px); }
+        .enlace-red.facebook:hover { color: #1877F2; transform: translateY(-3px); }
+        .enlace-red.tiktok:hover { color: #000000; transform: translateY(-3px); }
 
         /* Pie de página */
         footer {
@@ -421,16 +455,9 @@
             border-top: 4px solid var(--color-dorado);
         }
 
-        footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            letter-spacing: 0.5px;
-        }
-
-        /* Responsivo */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .menu { gap: 20px; }
+            .hero h1 { font-size: 2.6rem; }
+            .menu { display: none; } /* Oculto simplificado para móviles */
             .seccion-carrito { padding: 25px; }
         }
     </style>
@@ -441,9 +468,9 @@
         <div class="nav-contenedor">
             <a href="#" class="logo">Delicias <span>Rebe</span></a>
             <ul class="menu">
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#redes">Nuestras Redes</a></li>
-                <li><a href="#carrito">Pedido</a></li>
+                <li><a href="#catalogo">Catálogo Gourmet</a></li>
+                <li><a href="#carrito">Hacer Pedido</a></li>
+                <li><a href="#redes">Redes Sociales</a></li>
                 <li>
                     <div class="icono-carrito-nav" onclick="document.getElementById('carrito').scrollIntoView({behavior: 'smooth'});">
                         <i class="fa-solid fa-basket-shopping"></i>
@@ -455,77 +482,123 @@
     </header>
 
     <section class="hero">
-        <h1>Exquisitez Artesanal</h1>
-        <p>Alta repostería fina elaborada con ingredientes selectos para brindar una experiencia gourmet incomparable.</p>
+        <h1>Delicias Rebe</h1>
+        <p>Endulza tu día con lo mejor de la vida. Alta repostería artesanal creada para brindar experiencias gastronómicas inolvidables.</p>
+    </section>
+
+    <section class="banner-info">
+        <div class="banner-info-contenedor">
+            <div class="info-item">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Pedidos con Antelación (Bajo Reserva)</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-cake-slice"></i>
+                <span>Pedidos al Por Mayor y Menor</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-champagne-glasses"></i>
+                <span>Atención Especial para Todo Tipo de Eventos</span>
+            </div>
+        </div>
     </section>
 
     <section class="seccion-catalogo" id="catalogo">
-        <h2 class="titulo-seccion"><span>Selección Exclusiva</span>Nuestro Catálogo de Postres</h2>
+        <h2 class="titulo-seccion"><span>Nuestra Selección Exclusiva</span>Catálogo de Pastelería Fina</h2>
         <div class="grid-postres">
             
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed635d?auto=format&fit=crop&w=500&q=80" alt="Tarta de Frutos Rojos" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80" alt="Torta Tres Leches con Durazno" class="imagen-postre">
                 <div class="info-postre">
-                    <h3>Tarta Real de Frutos Rojos</h3>
-                    <p>Masa sablé crocante con una sedosa y ligera crema pastelera, decorada finamente con una corona rebosante de fresas, arándanos y frambuesas silvestres.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Tarta Real de Frutos Rojos')">Agregar al Pedido</button>
+                    <h3>Torta Tres Leches con Durazno</h3>
+                    <p>Esponjoso bizcocho tradicional minuciosamente humedecido con nuestra mezcla exclusiva de tres leches, coronado con crema sedosa y finos duraznos seleccionados.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Tres Leches con Durazno')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Volcán de Chocolate" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=500&q=80" alt="Torta de Zanahoria y Nueces" class="imagen-postre">
                 <div class="info-postre">
-                    <h3>Volcán de Chocolate Superior</h3>
-                    <p>Bizcocho elaborado con cacao de pureza excepcional y un extraordinario centro líquido caliente que fluye con sublime delicadeza.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Volcán de Chocolate Superior')">Agregar al Pedido</button>
+                    <h3>Torta Premium de Zanahoria y Nueces</h3>
+                    <p>Suave y especiada masa artesanal enriquecida con zanahoria rallada fresca y trozos crocantes de nuez premium, cubierta con una delicada capa frosting de la casa.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Premium de Zanahoria y Nueces')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Cheesecake de Maracuyá" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Porción de Torta de Chocolate con Fresas" class="imagen-postre">
+                <div class="info-postre">
+                    <h3>Torta de Chocolate de la Casa con Fresas</h3>
+                    <p>Exquisito bizcocho húmedo de puro cacao artesanal, cubierto con un untuoso e intenso fudge de chocolate de alta escuela y decorado con fresas frescas.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta de Chocolate con Fresas')">Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-postre">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&w=500&q=80" alt="Cheesecake Velvet de Maracuyá" class="imagen-postre">
                 <div class="info-postre">
                     <h3>Cheesecake Velvet de Maracuyá</h3>
-                    <p>Fusión equilibrada de crema aterciopelada y un elegante contraste ácido, cubierto con una jalea artesanal translúcida de la fruta de la pasión.</p>
+                    <p>Fusión cremosa horneada a la perfección sobre base crujiente de galleta, bañada con una jalea artesanal traslúcida y brillante de pura fruta de la pasión.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Cheesecake Velvet de Maracuyá')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Torta Selva Negra" class="imagen-postre">
-                <div class="info-postre">
-                    <h3>Torta Selva Negra Tradicional</h3>
-                    <p>Suaves capas de bizcocho húmedo de chocolate, rellenas de crema chantilly premium y exquisitas cerezas maceradas de la casa.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Torta Selva Negra Tradicional')">Agregar al Pedido</button>
-                </div>
-            </div>
-
-            <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" alt="Mousse de Tres Chocolates" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" alt="Mousse Imperial de Tres Chocolates" class="imagen-postre">
                 <div class="info-postre">
                     <h3>Mousse Imperial de Tres Chocolates</h3>
-                    <p>Elegante trilogía de texturas aéreas combinando chocolate negro intenso, chocolate con leche suave y chocolate blanco refinado.</p>
+                    <p>Trilogía perfecta de texturas ligeras y aéreas que combinan armoniosamente chocolate amargo, chocolate con leche y chocolate blanco refinado.</p>
                     <button class="btn-agregar" onclick="agregarAlCarrito('Mousse Imperial de Tres Chocolates')">Agregar al Pedido</button>
                 </div>
             </div>
 
             <div class="tarjeta-postre">
-                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Éclairs de Crema" class="imagen-postre">
+                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Éclairs Franceses" class="imagen-postre">
                 <div class="info-postre">
-                    <h3>Éclairs Franceses de Alta Escuela</h3>
-                    <p>Delicada masa choux horneada a la perfección, rellena de crema pastelera aromatizada a la vainilla y un glaseado espejo espléndido.</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('Éclairs Franceses de Alta Escuela')">Agregar al Pedido</button>
+                    <h3>Éclairs Franceses de Crema</h3>
+                    <p>Tradicional masa choux horneada, rellena de una sedosa crema pastelera aromatizada con vainas de vainilla natural y un glaseado de espejo impecable.</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Éclairs Franceses de Crema')">Agregar al Pedido</button>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <section class="seccion-carrito" id="carrito">
+        <h2 class="titulo-seccion"><span>Su Selección</span>Carrito de Pedidos Gourmet</h2>
+        
+        <div id="contenedor-carrito">
+            </div>
+
+        <div class="formulario-pedido" id="formulario-detalles" style="display: none;">
+            <div class="grupo-formulario">
+                <label for="metodo-entrega">Método de Entrega preferido:</label>
+                <select id="metodo-entrega">
+                    <option value="Retiro en el Local">Retirar en el Local (Sin costo adicional)</option>
+                    <option value="Envío a Domicilio">Envío a Domicilio (Coordinar tarifa de transporte)</option>
+                </select>
+            </div>
+            <div class="grupo-formulario">
+                <label for="fecha-entrega">Fecha y Hora sugerida para la entrega (Con antelación):</label>
+                <input type="text" id="fecha-entrega" placeholder="Ej: Sábado por la tarde / Fecha específica">
+            </div>
+            <div class="grupo-formulario">
+                <label for="notas-pedido">Notas especiales o personalización:</label>
+                <textarea id="notas-pedido" rows="3" placeholder="Ej: Escribir un nombre, empaque para regalo, detalles especiales, etc."></textarea>
+            </div>
+            
+            <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar Pedido Directo al Celular
+            </button>
+        </div>
+    </section>
+
     <section class="seccion-redes" id="redes">
         <h3>Siga Nuestras Páginas Oficiales</h3>
-        <p>Manténgase al tanto de nuestras nuevas creaciones, talleres y promociones exclusivas.</p>
+        <p>Manténgase al tanto de todas las exquisiteces y nuevos postres que preparamos continuamente.</p>
         <div class="contenedor-enlaces-redes">
-            <a href="#" target="_blank" class="enlace-red instagram">
-                <i class="fa-brands fa-instagram"></i> Instagram Oficial
+            <a href="https://www.instagram.com/ddelcias_rebe" target="_blank" class="enlace-red instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram (@ddelcias_rebe)
             </a>
             <a href="#" target="_blank" class="enlace-red facebook">
                 <i class="fa-brands fa-facebook-f"></i> Facebook Oficial
@@ -536,19 +609,8 @@
         </div>
     </section>
 
-    <section class="seccion-carrito" id="carrito">
-        <h2 class="titulo-seccion"><span>Su Selección</span>Carrito de Pedidos Gourmet</h2>
-        
-        <div id="contenedor-carrito">
-            </div>
-
-        <button class="btn-whatsapp" id="btn-enviar-pedido" onclick="enviarPedidoWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> Confirmar Pedido vía WhatsApp
-        </button>
-    </section>
-
     <footer>
-        <p>&copy; 2026 Delicias Rebe. Alta Repostería Elaborada con Dedicación y Distinción.</p>
+        <p>&copy; 2026 Delicias Rebe. Alta Repostería Elaborada al por Mayor y Menor con Distinción.</p>
     </footer>
 
     <script>
@@ -587,18 +649,18 @@
         function actualizarInterfazCarrito() {
             const contenedor = document.getElementById('contenedor-carrito');
             const contadorNav = document.getElementById('contador-nav');
-            const btnWhatsapp = document.getElementById('btn-enviar-pedido');
+            const formulario = document.getElementById('formulario-detalles');
             
             const totalProductos = carrito.reduce((total, item) => total + item.cantidad, 0);
             contadorNav.textContent = totalProductos;
 
             if (carrito.length === 0) {
-                contenedor.innerHTML = '<div class="carrito-vacio"><i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; margin-bottom: 15px; display:block; color: #D4AF37;"></i>Su carrito está vacío. Le invitamos a deleitarse con nuestro catálogo.</div>';
-                btnWhatsapp.style.display = 'none';
+                contenedor.innerHTML = '<div class="carrito-vacio"><i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; margin-bottom: 15px; display:block; color: #D4AF37;"></i>Su carrito está vacío. Le invitamos a deleitarse con nuestro catálogo y seleccionar sus productos favoritos.</div>';
+                formulario.style.display = 'none';
                 return;
             }
 
-            btnWhatsapp.style.display = 'flex';
+            formulario.style.display = 'block';
             let htmlCarrito = '<div class="lista-carrito">';
 
             carrito.forEach(item => {
@@ -626,16 +688,25 @@
         function enviarPedidoWhatsApp() {
             if (carrito.length === 0) return;
 
-            // NÚMERO DE TELÉFONO: Coloque aquí su número completo (ej. código de Ecuador 593 al inicio)
-            const numeroTelefono = "593900000000"; 
+            // TU NÚMERO DE TELÉFONO REAL CONFIGURADO
+            const numeroTelefono = "593995938594"; 
 
-            let mensaje = "¡Hola Delicias Rebe! ✨ Deseo realizar la solicitud de los siguientes postres de su exclusivo catálogo:\n\n";
+            // Recopilación de datos del formulario útil
+            const metodoEntrega = document.getElementById('metodo-entrega').value;
+            const fechaEntrega = document.getElementById('fecha-entrega').value || "A convenir con el maestro repostero";
+            const notas = document.getElementById('notas-pedido').value || "Sin observaciones adicionales";
+
+            let mensaje = "¡Hola *Delicias Rebe*! ✨ Deseo realizar la solicitud de los siguientes postres gourmet de su catálogo:\n\n";
 
             carrito.forEach((item, index) => {
-                mensaje += `${index + 1}. 🍰 *${item.nombre}* - Cantidad: [ ${item.cantidad} ]\n`;
+                mensaje += `${index + 1}. 🍰 *${item.nombre}* — Cantidad: [ ${item.cantidad} ]\n`;
             });
 
-            mensaje += "\nPor favor, agradecería que me confirmen para coordinar la entrega y los detalles. ¡Muchas gracias! ❤️";
+            mensaje += `\n📌 *Detalles de la Entrega:*`;
+            mensaje += `\n» *Método:* ${metodoEntrega}`;
+            mensaje += `\n» *Fecha/Hora sugerida:* ${fechaEntrega}`;
+            mensaje += `\n» *Notas/Personalización:* ${notas}`;
+            mensaje += "\n\nQuedo atento a su confirmación para coordinar los detalles. ¡Muchas gracias! ❤️";
 
             const mensajeCodificado = encodeURIComponent(mensaje);
             const enlaceWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`;
